@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bonus Code Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      width: 90%;
+      max-width: 400px;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c9a7;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00b28e;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      display: none;
+    }
+    .steps {
+      margin-top: 20px;
+      font-size: 16px;
+      line-height: 1.6;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Your Bonus Code</h2>
+    <input type="text" id="codeInput" placeholder="Enter your code here" />
+    <button onclick="generateBonus()">Generate Amount</button>
+    <div id="result" class="result"></div>
+    <div class="steps">
+      <h4>Steps to Claim:</h4>
+      <ol>
+        <li>Enter your unique bonus code above.</li>
+        <li>Click the "Generate Amount" button.</li>
+        <li>Screenshot the generated bonus and send to our support contact.</li>
+        <li>Follow the instructions you receive to process your bonus.</li>
+      </ol>
+    </div>
+  </div>
+
+  <script>
+    function generateBonus() {
+      const resultDiv = document.getElementById("result");
+      const code = document.getElementById("codeInput").value;
+      if (code.trim() === "") {
+        resultDiv.style.display = "block";
+        resultDiv.textContent = "Please enter a valid code.";
+        return;
+      }
+      const amount = Math.floor(Math.random() * 4000) + 1000;
+      resultDiv.style.display = "block";
+      resultDiv.textContent = `Congratulations! You qualify for $${amount.toLocaleString()}`;
+    }
+  </script>
+</body>
+</html>
